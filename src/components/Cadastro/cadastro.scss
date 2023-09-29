@@ -1,0 +1,22 @@
+.cadastro__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    gap: 16px;
+    padding: 16px;
+
+}
+.cadastro__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+
+    label {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+}
