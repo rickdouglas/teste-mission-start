@@ -15,6 +15,15 @@ export function ProductList() {
     setProducts(existingProducts);
   }, []);
 
+  const handleAddToCart = (product: any) => {
+    const existingCartString = localStorage.getItem("cart");
+    const existingCart = existingCartString
+      ? JSON.parse(existingCartString)
+      : [];
+    existingCart.push(product);
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+  };
+
   return (
     <div className="product__list">
       {products.map((product, index) => (
@@ -22,7 +31,7 @@ export function ProductList() {
           key={index}
           name={product.name}
           price={product.price}
-          onAddToCart={() => {}}
+          onAddToCart={() => handleAddToCart(product)}
         />
       ))}
     </div>
