@@ -1,0 +1,20 @@
+.cart__wrapper {
+    display: flex;
+    width: 100%;
+    gap: 24px;
+
+}
+
+.cart__list {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cart__total {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    gap: 16px;
+}
