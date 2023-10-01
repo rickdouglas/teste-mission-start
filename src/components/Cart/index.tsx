@@ -16,7 +16,7 @@ export function Cart() {
     setCartProducts(existingCartProducts);
 
     const cartTotal = existingCartProducts.reduce(
-      (acc, curr) => acc + parseFloat(curr.price),
+      (acc: any, curr: any) => acc + parseFloat(curr.price),
       0
     );
     setTotal(cartTotal);
