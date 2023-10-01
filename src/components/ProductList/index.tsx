@@ -1,17 +1,30 @@
-import { ProductCard } from "../ProductCard";
-import  './productList.scss'
-export function ProductList() {
-    return(
-        <div className = 'product__list'>
-            <ProductCard name="Teste" price= {10} />
-            <ProductCard name="Cueca" price= {20} />
-            <ProductCard name="Camisa" price= {30} />
-            <ProductCard name="Meia" price= {40} />
-            <ProductCard name="Chinelo" price= {45.33} />
-            <ProductCard name="bermuda" price= {50} />
-            <ProductCard name="tenis" price= {60.99} />
-            <ProductCard name="oculos" price= {10.59} />
+"use client";
 
-        </div>
-    )
+import React, { useEffect, useState } from "react";
+import { ProductCard } from "../ProductCard";
+import "./productList.scss";
+
+export function ProductList() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const existingProductsString = localStorage.getItem("products");
+    const existingProducts = existingProductsString
+      ? JSON.parse(existingProductsString)
+      : [];
+    setProducts(existingProducts);
+  }, []);
+
+  return (
+    <div className="product__list">
+      {products.map((product, index) => (
+        <ProductCard
+          key={index}
+          name={product.name}
+          price={product.price}
+          onAddToCart={() => {}}
+        />
+      ))}
+    </div>
+  );
 }
