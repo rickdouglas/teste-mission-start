@@ -5,7 +5,9 @@ import { CartItem } from "../CartItem";
 import "./cart.scss";
 
 export function Cart() {
-  const [cartProducts, setCartProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState<
+    { name: string; price: number }[]
+  >([]);
   const [total, setTotal] = useState(0);
 
   useEffect(() => {

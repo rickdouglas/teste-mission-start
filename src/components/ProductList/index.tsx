@@ -5,7 +5,9 @@ import { ProductCard } from "../ProductCard";
 import "./productList.scss";
 
 export function ProductList() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<{ name: string; price: number }[]>(
+    []
+  );
 
   useEffect(() => {
     const existingProductsString = localStorage.getItem("products");
