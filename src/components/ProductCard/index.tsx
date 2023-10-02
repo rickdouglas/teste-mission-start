@@ -1,8 +1,7 @@
+import { IProduct } from "@/types/product";
 import "./productCard.scss";
 
-interface ProductCardProps {
-  name: string;
-  price: number;
+interface ProductCardProps extends IProduct {
   onAddToCart: () => void;
 }
 

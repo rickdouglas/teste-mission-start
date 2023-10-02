@@ -12,13 +12,13 @@ export const navlinks = [
   },
   {
     id: 2,
-    label: "Cadastro",
+    label: "Cadastro de Produtos",
     url: "/cadastro",
     icon: <AddCardIcon />,
   },
   {
     id: 3,
-    label: "Lista",
+    label: "Lista de Produtos",
     url: "/lista",
     icon: <FormatListNumberedIcon />,
   },

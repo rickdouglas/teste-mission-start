@@ -3,11 +3,10 @@
 import React, { useEffect, useState } from "react";
 import { ProductCard } from "../ProductCard";
 import "./productList.scss";
+import { IProduct } from "@/types/product";
 
 export function ProductList() {
-  const [products, setProducts] = useState<{ name: string; price: number }[]>(
-    []
-  );
+  const [products, setProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
     const existingProductsString = localStorage.getItem("products");
@@ -17,7 +16,7 @@ export function ProductList() {
     setProducts(existingProducts);
   }, []);
 
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: IProduct) => {
     const existingCartString = localStorage.getItem("cart");
     const existingCart = existingCartString
       ? JSON.parse(existingCartString)

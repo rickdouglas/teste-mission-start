@@ -3,22 +3,21 @@
 import { useState, useEffect } from "react";
 import { CartItem } from "../CartItem";
 import "./cart.scss";
+import { IProduct } from "@/types/product";
 
 export function Cart() {
-  const [cartProducts, setCartProducts] = useState<
-    { name: string; price: number }[]
-  >([]);
+  const [cartProducts, setCartProducts] = useState<IProduct[]>([]);
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
     const existingCartProductsString = localStorage.getItem("cart");
-    const existingCartProducts = existingCartProductsString
+    const existingCartProducts: IProduct[] = existingCartProductsString
       ? JSON.parse(existingCartProductsString)
       : [];
     setCartProducts(existingCartProducts);
 
     const cartTotal = existingCartProducts.reduce(
-      (acc: any, curr: any) => acc + parseFloat(curr.price),
+      (acc, curr) => acc + curr.price,
       0
     );
     setTotal(cartTotal);
